@@ -1,21 +1,35 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import AppProvider from './AppProvider';
 import PostsList from './components/PostsList';
 import NewPost from './components/NewPost';
-//import EditPost from './components/EditPost';
 import ViewPost from './components/ViewPost';
+import EditPost from './components/EditPost';
+import Fetch from './components/Fetch';
 
-function App() {
+function App() {    
   return (
-    <Router>
-      <div className="posts-app">
-        <div className="posts-app-container">
-          <Route path="/" component={PostsList} exact />
-          <Route path="/posts/new" component={NewPost} />
-          <Route path="/posts/:id" component={ViewPost} />            
+    <AppProvider>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route path={process.env.PUBLIC_URL + '/posts/new'} component={NewPost} />
+            <Route 
+              path={process.env.PUBLIC_URL + '/posts/:id([0-9]+)'} 
+              render={({ location, match }) => {
+                if (location.state.isEdit) {
+                  return <EditPost match={match} />;
+                } else {
+                  return <ViewPost match={match} />;
+                }
+              }} 
+            />  
+            <Route path={process.env.PUBLIC_URL} component={PostsList} />
+          </Switch> 
+          <Fetch />
         </div>
-      </div>
-    </Router>
+      </Router>
+    </AppProvider>
   );
 }
 
