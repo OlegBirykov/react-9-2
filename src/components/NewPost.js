@@ -14,8 +14,9 @@ function NewPost() {
   }
   
   const addPost = async (event) => {
+    event.preventDefault();
+
     if (!text) {
-      event.preventDefault();
       return;
     }
     
@@ -33,7 +34,8 @@ function NewPost() {
     setWaiting(true);
     const response = await request(process.env.REACT_APP_SERVER, options);
     setError(response.error);  
-    setWaiting(false);
+
+    document.location.href = event.target.href;
   }
   
   return (
