@@ -1,7 +1,7 @@
-import { useContext } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import AppContext from '../AppContext';
-import request from '../utils/http';
+//import { useContext } from 'react';
+import { Link/*, Redirect */} from 'react-router-dom';
+//import AppContext from '../AppContext';
+//import request from '../utils/http';
 import editpost from '../img/editpost.jpg';
 
 function EditPost() {
