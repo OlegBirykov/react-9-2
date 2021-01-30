@@ -7,13 +7,12 @@ import request from '../utils/http';
 function ViewPost(props) {
   const { id } = props.match.params;
   const { data, setWaiting, setError } = useContext(AppContext);
-  
-  if (!data.length) {
+  const post = data.length && data.find(item => item.id === +id);
+
+  if (!post) {
     return <Redirect to={process.env.PUBLIC_URL} />
   }
-  
-  const post = data.find(item => item.id === +id);
-  
+
   const deletePost = async (event) => {
     event.preventDefault();
 

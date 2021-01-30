@@ -5,8 +5,7 @@ import request from '../utils/http';
 import newpost from '../img/newpost.jpg';
 
 function NewPost() {
-  const [text, setText] = useState('');  
-  
+  const [text, setText] = useState('');    
   const { setWaiting, setError } = useContext(AppContext);
   
   const changeText = event => {
@@ -48,6 +47,7 @@ function NewPost() {
         className="NewPost-input" 
         type="text" 
         name="text" 
+        value={text}
         placeholder="Текст поста (обязательно для заполнения)"
         required
         onChange={changeText} />

@@ -16,14 +16,8 @@ function App() {
             <Route path={process.env.PUBLIC_URL + '/posts/new'} component={NewPost} />
             <Route 
               path={process.env.PUBLIC_URL + '/posts/:id([0-9]+)'} 
-              render={({ location, match }) => {
-                if (location.state.isEdit) {
-                  return <EditPost match={match} />;
-                } else {
-                  return <ViewPost match={match} />;
-                }
-              }} 
-            />  
+              render={({ location, match }) => location.state.isEdit ? <EditPost match={match} /> : <ViewPost match={match} />}
+            /> 
             <Route path={process.env.PUBLIC_URL} component={PostsList} />
           </Switch> 
           <Fetch />
