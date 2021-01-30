@@ -1,4 +1,4 @@
-async function request(url, options) {
+export async function request(url, options) {
   const result = {
     data: [],
     error: ''
@@ -22,5 +22,3 @@ async function request(url, options) {
     return result;
   }
 }
-
-export default request;

@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../AppContext';
 import Post from './Post';
-import request from '../utils/http';
+import { request } from '../utils/http';
 import comment from '../img/comment.jpg';
 
 function PostsList() {

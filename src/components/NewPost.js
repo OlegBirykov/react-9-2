@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../AppContext';
-import request from '../utils/http';
+import { request } from '../utils/http';
 import newpost from '../img/newpost.jpg';
 
 function NewPost() {

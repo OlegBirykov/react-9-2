@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import AppContext from '../AppContext';
 import Post from './Post';
-import request from '../utils/http';
+import { request } from '../utils/http';
 
 function ViewPost(props) {
   const { id } = props.match.params;
