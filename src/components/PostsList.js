@@ -35,7 +35,7 @@ function PostsList() {
               pathname: process.env.PUBLIC_URL + '/posts/' + id,
               state: { isEdit: false }
             }} 
-            className="Posts-post-button"
+            className="PostsList-post-button"
           >
             &#x02EC;
           </Link>           
